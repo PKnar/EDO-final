@@ -35,6 +35,9 @@
   let isReadyToSubmit = (elements, email) => {
     let foundError = elements.map((el) => isNotEmptyOrInvalid(el));
     let isEmail = isValidEmail(email);
+    foundError.includes(false) || !isEmail
+      ? handleGeneralError()
+      : !isEmail && handleEmailError();
 
     if (foundError.includes(false)) {
       handleGeneralError();
