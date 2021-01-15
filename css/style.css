@@ -1,128 +1,205 @@
-*{
-
-    margin:0;
-    padding:0;
-    overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
 }
 
-#bgVideo{
-  width: 100%; 
-  top:0;
+#bgVideo {
+  width: 100%;
+  top: 0;
   position: relative;
-
 }
 
- nav{
-     position: absolute;
-     z-index: 1000;
- }
+nav {
+  position: fixed;
+  z-index: 1000;
+}
 
- #overlay{
-     width:100%;
-     height: 100vh;
-     background-color: rgba(2, 2, 2, 0.863);
-     position: absolute;
-     top: 0;
-     z-index: 300;
-   
- }
+#overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(2, 2, 2, 0.863);
+  position: absolute;
+  top: 0;
+  z-index: 300;
+}
 
- nav{
-     width:100%;
+nav {
+  width: 100%;
+}
 
- }
+nav ul {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
 
- nav ul{
-     display: flex;
-     width:95%;
-     justify-content: flex-end;
-   
-     padding:30px
-     
- }
+  padding: 30px;
+}
 
- nav ul li {
-    margin:10px
- }
+nav ul li {
+  margin: 10px;
+}
 
- nav ul li a{
-     text-decoration: none;
-     color:white
- }
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
 
- /* HERO */
- .header-hero{
-
+/* HERO */
+.header-hero {
   position: absolute;
   z-index: 500;
-  color:white;
-  width:100%;
-  height:100vh;
+  color: white;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:2rem;
+  padding: 2rem;
+}
 
+.header-hero h1 {
+  font-size: 5vw;
+  color: rgb(8, 206, 8);
+  margin-right: 2rem;
+  border-right: 1px solid rgb(8, 206, 8);
+  padding: 2rem;
+}
+.header-hero p {
+  font-size: 2.5vw;
+}
 
- }
+.header-hero .wrapper {
+  display: flex;
+  align-items: center;
+}
 
- .header-hero h1{
-     font-size: 5vw;
-     color:rgb(8, 206, 8);
-     margin-right: 2rem;
-     border-right:1px solid rgb(8, 206, 8);
-     padding: 2rem
-
- }
-  .header-hero p{
-      font-size: 2.5vw;
-  }
-
-
- .header-hero .wrapper{
-     display: flex;
-     align-items: center;
- }
-
- span{
-    color:rgb(128, 179, 9);
- }
-
-
-
-
-
+span {
+  color: rgb(128, 179, 9);
+}
 
 /*--------------------------*/
 
- @media (max-width:900px){
+@media (max-width: 900px) {
+  #bgVideo {
+    width: auto;
+    height: 100vh;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+  }
 
+  /* nav ul {
+    flex-direction: column;
+    align-items: flex-end;
+    width: 90%;
+  } */
 
-    #bgVideo{
-        width:auto;
-        height:100vh;
-        bottom: 0;
-        top:0;
-        position: fixed;
-      
-    }
+  .header-hero .wrapper {
+    flex-direction: column;
+  }
+  .header-hero h1 {
+    border-right: none;
+    border-bottom: 1px solid rgb(8, 206, 8);
+    margin-bottom: 20px;
+  }
+}
 
-    nav ul {
-        flex-direction: column;
-        align-items: flex-end;
-         width:90%;
-       
-    }
-  
-    .header-hero .wrapper{
-     flex-direction: column;
-    }
-     .header-hero h1{
-         border-right: none;
-         border-bottom:  1px solid  rgb(8, 206, 8);
-         margin-bottom: 20px;
-     }
+.mobile-nav {
+  display: none;
+}
 
+/*MEDIA */
 
- }
+@media (max-width: 600px) {
+  /* BURGET MENU */
+  .mobile-nav {
+    position: fixed;
+    background-color: rgb(49, 48, 48);
+    display: block;
+    height: 100vh;
+    top: 0;
+    width: 100%;
+    right: -100%;
+    transition: 0.5s;
+  }
+
+  .burger-menu {
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .mobile-nav a {
+    color: rgb(8, 206, 8);
+  }
+
+  .line {
+    width: 20px;
+    height: 3px;
+    margin: 2px;
+    background-color: rgb(182, 179, 179);
+    transition: 0.5s;
+  }
+  .desktop-nav {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .rotate45 {
+    transform: rotate(45deg);
+    position: relative;
+    top: -7px;
+    transition: 0.5s;
+  }
+  .rotate-45 {
+    transform: rotate(-45deg);
+    transition: 0.5s;
+  }
+
+  .slideLeft {
+    right: 0;
+    transition: 0.5s;
+  }
+}
+
+/* animation */
+
+.title {
+  cursor: pointer;
+}
+
+.animated {
+  overflow: hidden;
+  animation: gradient 2s infinite;
+}
+
+@keyframes gradient {
+  from {
+    color: lime;
+  }
+  to {
+    background: -webkit-linear-gradient(
+      rgb(255, 77, 77) 50%,
+      rgb(255, 255, 255)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
